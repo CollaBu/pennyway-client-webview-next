@@ -1,3 +1,62 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"]
+  "plugins": ["fsd-import", "@tanstack/query", "import"],
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "rules": {
+    "fsd-import/fsd-relative-path": "error",
+    "fsd-import/public-api-imports": "error",
+    "fsd-import/layer-imports": "error",
+    "@tanstack/query/stable-query-client": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "react-router-dom",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "styled-components",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@mui/**/*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@/**/*",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
 }
