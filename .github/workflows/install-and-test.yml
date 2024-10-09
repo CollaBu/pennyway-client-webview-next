@@ -1,0 +1,41 @@
+name: install-and-test
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+
+jobs:
+  install-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install node modules
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Unit & Integration test
+        run: pnpm test
