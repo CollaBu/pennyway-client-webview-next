@@ -1,9 +1,9 @@
-name: storybook-test-and-deploy
+name: storybook-deloyment
 
 on: push
 
 jobs:
-  storybook-test-and-deploy:
+  storybook-deloyment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,7 +28,7 @@ jobs:
       - name: Lint
         run: pnpm lint
     
-      - name: deploy storybook&chromatic
+      - name: deploy storybook on chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
