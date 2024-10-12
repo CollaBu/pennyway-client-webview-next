@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    lagbel: '버튼',
+    label: '버튼',
     clickFn: fn(),
   },
 };
