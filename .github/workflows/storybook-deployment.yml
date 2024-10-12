@@ -29,4 +29,4 @@ jobs:
       - name: deploy storybook on chromatic
         uses: chromaui/action@latest
         with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: chpt_b0b5ae1ea391035
