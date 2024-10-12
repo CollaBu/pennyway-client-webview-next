@@ -1,10 +1,10 @@
-name: storybook-deloyment
+name: storybook-deployment
 
 on:
   workflow_call:
 
 jobs:
-  storybook-deloyment:
+  storybook-deployment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,4 +30,3 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          autoAcceptChanges: 'main'

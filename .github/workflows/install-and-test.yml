@@ -41,5 +41,5 @@ jobs:
         run: pnpm test
 
   storybook-deployment:
-    needs: install-and-deployment
+    needs: install-and-test
     uses: ./.github/workflows/storybook-deployment.yml
