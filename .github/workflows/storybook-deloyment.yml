@@ -1,6 +1,10 @@
 name: storybook-deloyment
 
-on: push
+on:
+  workflow_run:
+    workflows: ['install-and-test']
+    types:
+      - completed
 
 jobs:
   storybook-deloyment:
@@ -10,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-    
+
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
@@ -21,15 +25,12 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-      
+
       - name: Install node modules
         run: pnpm install
 
-      - name: Lint
-        run: pnpm lint
-    
       - name: deploy storybook on chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          autoAcceptChanges: "main"
+          autoAcceptChanges: 'main'
