@@ -1,5 +1,14 @@
 import type { Config } from 'tailwindcss';
 
+const createFontSize = (
+  size: string,
+  fontWeight: string,
+  lineHeight: string = '130%',
+): [string, { letterSpacing: string; lineHeight: string; fontWeight: string | number }] => [
+  size,
+  { letterSpacing: '-0.03em', lineHeight, fontWeight },
+];
+
 const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,21 +26,21 @@ const config: Config = {
         sans: ['Pretendard', 'sans-serif'],
       },
       fontSize: {
-        h1b: ['24px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: 'bold' }],
-        h1s: ['24px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '600' }],
-        h2s: ['20px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '600' }],
-        h3b: ['16px', { letterSpacing: '-0.03em', lineHeight: '140%', fontWeight: 'bold' }],
-        h3s: ['16px', { letterSpacing: '-0.03em', lineHeight: '140%', fontWeight: '600' }],
-        h4s: ['14px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '600' }],
-        h4m: ['14px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '500' }],
-        b1s: ['12px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '600' }],
-        b1m: ['12px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '500' }],
-        b1r: ['12px', { letterSpacing: '-0.03em', lineHeight: '140%', fontWeight: '400' }],
-        b2s: ['11px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '600' }],
-        b2m: ['11px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '500' }],
-        b2r: ['11px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '400' }],
-        b3m: ['9px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '500' }],
-        b4m: ['8px', { letterSpacing: '-0.03em', lineHeight: '130%', fontWeight: '500' }],
+        h1b: createFontSize('24px', 'bold'),
+        h1s: createFontSize('24px', '600'),
+        h2s: createFontSize('20px', '600'),
+        h3b: createFontSize('16px', 'bold', '140%'),
+        h3s: createFontSize('16px', '600', '140%'),
+        h4s: createFontSize('14px', '600'),
+        h4m: createFontSize('14px', '500'),
+        b1s: createFontSize('12px', '600'),
+        b1m: createFontSize('12px', '500'),
+        b1r: createFontSize('12px', '400', '140%'),
+        b2s: createFontSize('11px', '600'),
+        b2m: createFontSize('11px', '500'),
+        b2r: createFontSize('11px', '400'),
+        b3m: createFontSize('9px', '500'),
+        b4m: createFontSize('8px', '500'),
       },
     },
   },
