@@ -39,3 +39,8 @@ jobs:
 
       - name: Unit & Integration test
         run: pnpm test
+
+  storybook-deployment:
+    needs: install-and-test
+    uses: ./.github/workflows/storybook-deployment.yml
+    secrets: inherit
