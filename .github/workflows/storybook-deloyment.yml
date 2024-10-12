@@ -1,15 +1,11 @@
 name: storybook-deloyment
 
 on:
-  workflow_run:
-    workflows: ['install-and-test']
-    types:
-      - completed
+  workflow_call:
 
 jobs:
   storybook-deloyment:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -39,3 +39,7 @@ jobs:
 
       - name: Unit & Integration test
         run: pnpm test
+
+  storybook-deployment:
+    needs: install-and-deployment
+    uses: ./.github/workflows/storybook-deployment.yml
