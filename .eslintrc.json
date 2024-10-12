@@ -31,21 +31,12 @@
             "position": "before"
           },
           {
-            "pattern": "react-router-dom",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "styled-components",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "@/**/*",
+            "pattern": "@/**",
             "group": "external",
             "position": "after"
           }
         ],
+        "pathGroupsExcludedImportTypes": ["react", "next"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
