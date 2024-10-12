@@ -1,0 +1,41 @@
+name: storybook-deployment
+
+on:
+  workflow_call:
+
+jobs:
+  storybook-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install node modules
+        run: pnpm install
+
+      - name: deploy storybook on chromatic
+        id: chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+      - name: Publish Storybook Link in the comments
+        uses: dannyhw/storybook-chromatic-link-comment@v0.11
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          review-url: ${{ steps.chromatic.outputs.url }}
+          build-url: ${{ steps.chromatic.outputs.buildUrl }}
+          storybook-url: ${{ steps.chromatic.outputs.storybookUrl }}
