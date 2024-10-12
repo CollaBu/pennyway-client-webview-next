@@ -43,3 +43,4 @@ jobs:
   storybook-deployment:
     needs: install-and-test
     uses: ./.github/workflows/storybook-deployment.yml
+    secrets: inherit
