@@ -1,10 +1,7 @@
 {
-  "plugins": ["fsd-import", "@tanstack/query", "import"],
+  "plugins": ["@tanstack/query", "import"],
   "extends": ["next/core-web-vitals", "next/typescript", "prettier", "plugin:storybook/recommended"],
   "rules": {
-    "fsd-import/fsd-relative-path": "error",
-    "fsd-import/public-api-imports": "error",
-    "fsd-import/layer-imports": "error",
     "@tanstack/query/stable-query-client": "error",
     "import/order": [
       "error",
