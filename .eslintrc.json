@@ -1,8 +1,45 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "next/typescript",
-    "prettier",
-    "plugin:storybook/recommended"
-  ]
+  "plugins": ["@tanstack/query", "import"],
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier", "plugin:storybook/recommended"],
+  "rules": {
+    "@tanstack/query/stable-query-client": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "next"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
 }
