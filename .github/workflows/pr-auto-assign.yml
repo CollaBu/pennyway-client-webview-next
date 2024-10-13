@@ -11,7 +11,7 @@ jobs:
   add-reviewers-and-assignee:
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/auto-assign-action@v1.2.5
+      - uses: kentaro-m/auto-assign-action@v2.0.0
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           configuration-path: '.github/AUTO_ASSIGN_CONFIG.yml'
