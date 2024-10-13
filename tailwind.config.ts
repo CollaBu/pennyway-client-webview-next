@@ -11,10 +11,10 @@ const createFontSize = (
 
 const config: Config = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/features/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/widgets/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{ts,tsx}',
+    './src/pages/**/*.{ts,tsx}',
+    './src/features/**/*.{ts,tsx}',
+    './src/widgets/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
