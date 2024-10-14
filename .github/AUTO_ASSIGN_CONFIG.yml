@@ -1,0 +1,8 @@
+addAssignees: author
+addReviewers: true
+
+numberOfReviewers: 0
+reviewers:
+  - Legitgoons
+  - BangDori
+  - suhwan2004

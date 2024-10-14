@@ -21,6 +21,33 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+
+        white: '#ffffff',
+        black: '#000000',
+
+        gray01: '#f7f8f9',
+        gray02: '#f0f2f4',
+        gray03: '#dde0e5',
+        gray04: '#b3b9c4',
+        gray05: '#8691a2',
+        gray06: '#383e4a',
+        gray07: '#161a1d',
+
+        red01: '#fff1f1',
+        red02: '#ff9999',
+        red03: '#ff6767',
+
+        yellow01: '#fffedc',
+        yellow02: '#ffbd3b',
+
+        ashblue01: '#e7fcff',
+        ashblue02: '#d5f0f4',
+
+        mint01: '#d9f9fb',
+        mint02: '#9deff6',
+        mint03: '#00d5e1',
+
+        overlay: 'rgba(0, 0, 0, 0.3)',
       },
       fontFamily: {
         sans: ['Pretendard', 'sans-serif'],
