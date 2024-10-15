@@ -1,0 +1,24 @@
+echo "🐶 Running git push"
+
+FORBIDDEN_HTTPS_URL="https://github.com/CollaBu/pennyway-client-webview-next.git"
+FORBIDDEN_SSH_URL="git@github.com:CollaBu/pennyway-client-webview-next.git"
+FORBIDDEN_REF="refs/heads/main"
+
+remote="$1"
+url="$2"
+
+if [ "$url" != "$FORBIDDEN_HTTPS_URL" -a "$url" != "$FORBIDDEN_SSH_URL" ]
+then
+    exit 0
+fi
+
+if read local_ref local_sha remote_ref remote_sha
+then
+    if [ "$remote_ref" == "$FORBIDDEN_REF" ]
+    then
+        echo "🐶 Do not push to the main Branch"
+        exit 1
+    fi
+fi
+
+exit 0
