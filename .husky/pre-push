@@ -1,4 +1,4 @@
-echo "🐶 Running git push"
+echo "🐶 Starting git push"
 
 FORBIDDEN_HTTPS_URL="https://github.com/CollaBu/pennyway-client-webview-next.git"
 FORBIDDEN_SSH_URL="git@github.com:CollaBu/pennyway-client-webview-next.git"
@@ -21,4 +21,13 @@ then
     fi
 fi
 
+echo "🐶 Running pnpm build"
+if ! pnpm build
+then
+    echo "🐶 Build failed. Push aborted."
+    exit 1
+fi
+
+
+echo "🐶 Success Pre-Push!"
 exit 0
