@@ -1,4 +1,4 @@
-import { Button } from '@/shared/ui';
+import { Button, ModalOverlay } from '@/shared/ui';
 
 import { modalContents } from '../consts';
 
@@ -27,6 +27,7 @@ export function Modal({ type, isVisible, onCancel, onConfirm }: ModalProps) {
           </div>
         </div>
       </div>
+      <ModalOverlay />
     </div>
   );
 }
