@@ -1,4 +1,4 @@
-import { Button, ModalOverlay } from '@/shared/ui';
+import { Button, ModalWrapper } from '@/shared/ui';
 
 import { modalContents } from '../consts';
 
@@ -13,7 +13,7 @@ export function Modal({ type, isVisible, onCancel, onConfirm }: ModalProps) {
   if (!isVisible) return <></>;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center">
+    <ModalWrapper>
       <div className="bg-white rounded-[10px] z-20">
         <div className="pt-7 pb-3 px-3.5 w-[230px]">
           <div className="flex flex-col justify-center items-center gap-2">
@@ -27,7 +27,6 @@ export function Modal({ type, isVisible, onCancel, onConfirm }: ModalProps) {
           </div>
         </div>
       </div>
-      <ModalOverlay />
-    </div>
+    </ModalWrapper>
   );
 }

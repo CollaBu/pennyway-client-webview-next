@@ -1,2 +1,2 @@
 export * from './button';
-export * from './modal-overlay';
+export * from './modal-wrapper';
