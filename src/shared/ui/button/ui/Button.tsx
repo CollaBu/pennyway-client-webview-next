@@ -9,7 +9,7 @@ interface ButtonProps {
 export function Button({ type = 'default', label, onClick }: ButtonProps) {
   return (
     <button
-      className={`rounded-md px-[1.125rem] py-2.5 text-b1m ${buttonColors[type]}`}
+      className={`w-24 rounded-md px-[1.125rem] py-2.5 text-b1m ${buttonColors[type]}`}
       onClick={onClick}
     >
       {label}
