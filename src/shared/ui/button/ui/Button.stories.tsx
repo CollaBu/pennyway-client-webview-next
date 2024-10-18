@@ -2,7 +2,7 @@ import { fn } from '@storybook/test';
 
 import { Button } from './Button';
 
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 type Story = StoryObj<typeof Button>;
 
@@ -16,7 +16,7 @@ export default {
     label: 'button Title',
     onClick: fn(),
   },
-};
+} satisfies Meta<typeof Button>;
 
 export const Default: Story = {
   args: {},
