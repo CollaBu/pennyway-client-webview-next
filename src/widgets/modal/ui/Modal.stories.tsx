@@ -9,7 +9,15 @@ type Story = StoryObj<typeof Modal>;
 export default {
   title: 'Modal',
   component: Modal,
-  parameters: { layout: 'centered' },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 360,
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     isVisible: true,
