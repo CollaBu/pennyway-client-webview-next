@@ -12,6 +12,7 @@ export default {
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
   args: {
+    isVisible: true,
     onCancel: fn(),
     onConfirm: fn(),
   },

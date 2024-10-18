@@ -4,11 +4,14 @@ import { modalContents } from '../consts';
 
 interface ModalProps {
   type: keyof typeof modalContents;
+  isVisible: boolean;
   onCancel: () => void;
   onConfirm: () => void;
 }
 
-export function Modal({ type, onCancel, onConfirm }: ModalProps) {
+export function Modal({ type, isVisible, onCancel, onConfirm }: ModalProps) {
+  if (!isVisible) return <></>;
+
   return (
     <div className="w-full h-full bg-white rounded-[10px]">
       <div className="pt-7 pb-3 px-3.5 w-[230px]">
