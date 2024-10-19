@@ -22,8 +22,13 @@ export function Modal({ type, isVisible, onCancel, onConfirm }: IModalProps) {
           </div>
 
           <div className="flex justify-between mt-6 flex-1">
-            <Button type="default" label="취소" onClick={onCancel} />
-            <Button type="primary" label={modalContents[type].confirmText} onClick={onConfirm} />
+            <Button type="default" variant="medium" label="취소" onClick={onCancel} />
+            <Button
+              type="primary"
+              variant="medium"
+              label={modalContents[type].confirmText}
+              onClick={onConfirm}
+            />
           </div>
         </div>
       </div>
