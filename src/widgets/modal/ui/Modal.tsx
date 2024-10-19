@@ -13,7 +13,7 @@ export function Modal({ type, isVisible, onCancel, onConfirm }: IModalProps) {
   if (!isVisible) return <></>;
 
   return (
-    <ModalWrapper>
+    <ModalWrapper position="center">
       <div className="bg-white rounded-[10px] z-20">
         <div className="pt-7 pb-3 px-3.5 w-[230px]">
           <div className="flex flex-col justify-center items-center space-y-2">
