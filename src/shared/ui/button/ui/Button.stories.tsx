@@ -13,7 +13,7 @@ export default {
   tags: ['autodocs'],
   args: {
     type: 'default',
-    label: 'button Title',
+    label: 'button',
     variant: 'medium',
     onClick: fn(),
   },
@@ -21,19 +21,6 @@ export default {
 
 export const Default: Story = {
   args: {},
-};
-
-export const Small: Story = {
-  args: {
-    variant: 'small',
-    label: 'button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    variant: 'large',
-  },
 };
 
 export const Primary: Story = {
