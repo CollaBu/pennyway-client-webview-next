@@ -30,6 +30,12 @@ export const Small: Story = {
   },
 };
 
+export const Large: Story = {
+  args: {
+    variant: 'large',
+  },
+};
+
 export const Primary: Story = {
   args: {
     type: 'primary',
