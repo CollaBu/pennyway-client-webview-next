@@ -1,7 +1,7 @@
-import { TButtonType, buttonColors } from '../consts';
+import { buttonColors } from '../consts';
 
 interface IButtonProps {
-  type?: TButtonType;
+  type?: keyof typeof buttonColors;
   label: string;
   onClick: () => void;
 }
