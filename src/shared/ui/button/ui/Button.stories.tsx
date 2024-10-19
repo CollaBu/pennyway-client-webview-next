@@ -14,12 +14,20 @@ export default {
   args: {
     type: 'default',
     label: 'button Title',
+    variant: 'medium',
     onClick: fn(),
   },
 } satisfies Meta<typeof Button>;
 
 export const Default: Story = {
   args: {},
+};
+
+export const Small: Story = {
+  args: {
+    variant: 'small',
+    label: 'button',
+  },
 };
 
 export const Primary: Story = {
