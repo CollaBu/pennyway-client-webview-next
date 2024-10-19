@@ -1,12 +1,12 @@
-import { ButtonType, buttonColors } from '../consts';
+import { TButtonType, buttonColors } from '../consts';
 
-interface ButtonProps {
-  type?: ButtonType;
+interface IButtonProps {
+  type?: TButtonType;
   label: string;
   onClick: () => void;
 }
 
-export function Button({ type = 'default', label, onClick }: ButtonProps) {
+export function Button({ type = 'default', label, onClick }: IButtonProps) {
   return (
     <button
       className={`w-24 rounded-md px-[1.125rem] py-2.5 text-b1m ${buttonColors[type]}`}

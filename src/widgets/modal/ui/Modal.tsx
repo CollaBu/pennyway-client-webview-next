@@ -2,14 +2,14 @@ import { Button, ModalWrapper } from '@/shared/ui';
 
 import { modalContents } from '../consts';
 
-interface ModalProps {
+interface IModalProps {
   type: keyof typeof modalContents;
   isVisible: boolean;
   onCancel: () => void;
   onConfirm: () => void;
 }
 
-export function Modal({ type, isVisible, onCancel, onConfirm }: ModalProps) {
+export function Modal({ type, isVisible, onCancel, onConfirm }: IModalProps) {
   if (!isVisible) return <></>;
 
   return (
