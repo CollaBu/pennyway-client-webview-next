@@ -1,12 +1,17 @@
+import { PropsWithChildren } from 'react';
+
 import { Header } from '@/shared/ui';
 import type { IHeader } from '@/shared/ui/header/ui/Header';
 
 export interface IPageContainer {
   headerProps: IHeader;
   hasHeader?: boolean;
-  children?: JSX.Element;
 }
-export default function PageContainer({ headerProps, hasHeader = true, children }: IPageContainer) {
+export default function PageContainer({
+  headerProps,
+  hasHeader = true,
+  children,
+}: PropsWithChildren<IPageContainer>) {
   return (
     <div>
       {hasHeader && <Header {...headerProps} />}
