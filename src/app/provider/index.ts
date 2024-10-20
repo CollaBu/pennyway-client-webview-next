@@ -1,3 +1,2 @@
-import QueryProvider from './QueryProvider';
-
-export { QueryProvider };
+export { QueryProvider } from './QueryProvider';
+export { MockProvider } from './MockProvider';
