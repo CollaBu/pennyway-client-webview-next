@@ -13,6 +13,7 @@ const config: Config = {
   content: [
     './app/**/*.{ts,tsx}',
     './src/pages/**/*.{ts,tsx}',
+    './src/shared/**/*.{ts,tsx}',
     './src/features/**/*.{ts,tsx}',
     './src/widgets/**/*.{ts,tsx}',
   ],
