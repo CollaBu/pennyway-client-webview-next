@@ -7,7 +7,7 @@ export interface IPageContainer {
   headerProps: IHeader;
   hasHeader?: boolean;
 }
-export default function PageContainer({
+export function PageContainer({
   headerProps,
   hasHeader = true,
   children,
