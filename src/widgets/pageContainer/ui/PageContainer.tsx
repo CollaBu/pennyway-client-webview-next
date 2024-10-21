@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 
 import { Header } from '@/shared/ui';
-import type { IHeader } from '@/shared/ui/header/ui/Header';
+import type { IHeader } from '@/shared/ui';
 
 export interface IPageContainer {
   headerProps: IHeader;
