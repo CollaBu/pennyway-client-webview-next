@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 
-import { MockProvider, QueryProvider } from '@/app/provider';
+import { MockProvider, server } from '@/app/mocks';
+import { QueryProvider } from '@/app/provider';
+
 import './globals.css';
+
+if (process.env.NEXT_RUNTIME === 'nodejs') {
+  server.listen();
+}
 
 export const metadata: Metadata = {
   title: 'Pennyway',
