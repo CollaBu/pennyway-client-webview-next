@@ -16,6 +16,7 @@ const config: Config = {
     './src/shared/**/*.{ts,tsx}',
     './src/features/**/*.{ts,tsx}',
     './src/widgets/**/*.{ts,tsx}',
+    './src/shared/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
