@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { QueryProvider } from '@/app/provider';
+import { MockProvider, QueryProvider } from '@/app/provider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <MockProvider>{children}</MockProvider>
+        </QueryProvider>
       </body>
     </html>
   );
