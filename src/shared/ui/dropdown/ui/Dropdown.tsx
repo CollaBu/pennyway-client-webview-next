@@ -3,7 +3,6 @@ import { PropsWithChildren, useState } from 'react';
 
 export interface IDropdown {
   options: Array<IOption>;
-  defaultIndex?: number;
   menuPositionClass: string;
   selectOption: (index: number) => void;
 }
@@ -15,22 +14,17 @@ export interface IOption {
 
 export function Dropdown({
   options,
-  defaultIndex = 0,
   menuPositionClass,
   selectOption,
   children,
 }: PropsWithChildren<IDropdown>) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(
-    defaultIndex < 0 || options.length <= defaultIndex ? defaultIndex : 0,
-  );
 
   const clickToggle = () => {
     setIsOpen((prev) => !prev);
   };
 
   const clickOption = (index: number) => {
-    setSelectedIndex(index);
     setIsOpen(false);
     selectOption(index);
   };
@@ -48,7 +42,7 @@ export function Dropdown({
             <button
               key={`${option.title}_${option.itemTitle}`}
               onClick={() => clickOption(index)}
-              className={`w-full p-2 font-medium text-xs ${index === selectedIndex ? 'text-gray05 bg-gray02' : 'text-gray04 bg-transparent'}`}
+              className="w-full p-2 font-medium text-xs text-gray04 bg-transparent hover:text-gray05 hover:bg-gray02"
             >
               {option.itemTitle}
             </button>

@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Dropdown } from '@/shared/ui/dropdown/ui/Dropdown';
-import type { IOption } from '@/shared/ui/dropdown/ui/Dropdown';
+import { Dropdown } from '.';
+
+import type { IOption } from '.';
 
 import ArrowDownSmall from '/public/assets/icon/arrow-down-small.svg';
 
@@ -23,7 +24,6 @@ export default {
   args: {
     options,
     children: <button className="text-black text-h4m p-2 rounded">{options[0].itemTitle}</button>,
-    defaultIndex: 0,
     menuPositionClass: 'top-[40px] left-1/2 -translate-x-1/2',
     selectOption: (index: number) => {
       console.log(index);
@@ -33,7 +33,7 @@ export default {
 
 export const DefaultDropdown: Story = {
   render: (args) => {
-    const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(args.defaultIndex ?? 0);
+    const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(0);
     return (
       <Dropdown
         {...args}
