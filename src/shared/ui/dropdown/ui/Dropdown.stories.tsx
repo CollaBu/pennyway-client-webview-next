@@ -17,7 +17,7 @@ const options: IOption[] = [
 type Story = StoryObj<typeof Dropdown>;
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Dropdown',
   component: Dropdown,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
@@ -31,7 +31,7 @@ export default {
   },
 } satisfies Meta<typeof Dropdown>;
 
-export const DefaultDropdown: Story = {
+export const Default: Story = {
   render: (args) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(0);
     return (
