@@ -42,7 +42,7 @@ export function Dropdown({
             <button
               key={`${option.title}_${option.itemTitle}`}
               onClick={() => clickOption(index)}
-              className="w-full p-2 font-medium text-xs text-gray04 bg-transparent hover:text-gray05 hover:bg-gray02"
+              className="w-full p-2 font-medium text-xs text-gray04 bg-transparent hover:text-gray05 hover:bg-gray02 rounded-[3px]"
             >
               {option.itemTitle}
             </button>
