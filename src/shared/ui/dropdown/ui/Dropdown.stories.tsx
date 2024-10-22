@@ -33,14 +33,12 @@ export default {
 
 export const Default: Story = {
   render: (args) => {
-    const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(0);
+    const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
+    const selectOption = (index: number) => {
+      setSelectedOptionIndex(index);
+    };
     return (
-      <Dropdown
-        {...args}
-        selectOption={(index: number) => {
-          setSelectedOptionIndex(index);
-        }}
-      >
+      <Dropdown {...args} selectOption={selectOption}>
         <span className="text-black">{args.options[selectedOptionIndex]?.itemTitle}</span>
         <div className="absolute -right-6 top-1/2 -translate-y-1/2">
           <ArrowDownSmall width="24" height="24" />
