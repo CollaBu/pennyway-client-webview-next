@@ -1,5 +1,5 @@
 export interface IHeader {
-  left?: JSX.Element;
+  left: JSX.Element;
   center?: JSX.Element;
   right?: JSX.Element;
 }
