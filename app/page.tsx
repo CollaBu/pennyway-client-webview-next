@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import IconArrowFront from '/public/assets/icon/arrow-front.svg';
 
 import { MovieList } from '@/app/mocks';
@@ -9,8 +11,10 @@ type User = {
 };
 
 async function getUser() {
-  const response = await fetch('https://api.example.com/user');
-  const user = (await response.json()) as User;
+  console.log('is fetch patched?', Reflect.get(fetch, '__FOO'));
+
+  const result = await axios.get('https://api.example.com/user');
+  const user = result.data as User;
   return user;
 }
 
