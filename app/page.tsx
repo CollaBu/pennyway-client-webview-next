@@ -2,7 +2,6 @@ import axios from 'axios';
 
 import IconArrowFront from '/public/assets/icon/arrow-front.svg';
 
-import { MovieList } from '@/app/mocks';
 import { PageContainer } from '@/widgets/pageContainer/ui/PageContainer';
 
 type User = {
@@ -31,7 +30,6 @@ export default async function Home() {
     >
       <div className="mt-[44px] flex flex-col justify-center gap-12 bg-[#666666]">
         <p id="server-side-greeting">Hello, {user.firstName}!</p>
-        <MovieList />
         <div className="w-72">
           <p className="bg-white text-black">White</p>
           <p className="bg-gray01 text-black">Gray 01</p>
