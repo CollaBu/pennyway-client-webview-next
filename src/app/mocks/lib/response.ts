@@ -18,13 +18,13 @@ export async function createHttpSuccessResponse<T>(data: T) {
 /**
  * @description Mocking API의 Error 응답을 생성하는 메서드
  */
-export async function createHttpErrorResponse() {
+export async function createHttpErrorResponse(errorMessage: string) {
   await delay();
 
   return HttpResponse.json(
     {
       code: '5200',
-      message: 'Unknown error',
+      message: errorMessage,
     },
     { status: 200 },
   );
