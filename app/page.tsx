@@ -10,8 +10,6 @@ type User = {
 };
 
 async function getUser() {
-  console.log('is fetch patched?', Reflect.get(fetch, '__FOO'));
-
   const result = await axios.get('https://api.example.com/user');
   const user = result.data as User;
   return user;
