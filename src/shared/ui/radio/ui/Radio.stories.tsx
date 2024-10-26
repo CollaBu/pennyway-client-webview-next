@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import { radioShapes } from '../const';
+import { radioShapes } from '../consts';
 
 import { Radio, IRadio } from './Radio';
 

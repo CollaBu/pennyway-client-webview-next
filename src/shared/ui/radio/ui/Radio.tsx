@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { radioShapes } from '../const';
+import { radioShapes } from '../consts';
 
 export interface IRadio {
   isSelected: boolean;

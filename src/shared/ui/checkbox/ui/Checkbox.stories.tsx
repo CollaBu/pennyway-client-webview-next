@@ -25,7 +25,7 @@ export const Default: Story = {
   },
 };
 
-export const boxPrimary: Story = {
+export const BoxPrimary: Story = {
   render: (args: ICheckBox) => {
     const [isChecked, setIsChecked] = useState<boolean>(false);
 

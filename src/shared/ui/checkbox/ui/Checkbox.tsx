@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { checkboxShapes } from '../const';
+import { checkboxShapes } from '../consts';
 
 type setIsCheckedFunc = (value: boolean) => void;
 

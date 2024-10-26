@@ -1,30 +1,42 @@
+'use client';
 import { useState } from 'react';
 
 import { Button, ModalWrapper, Checkbox, Radio } from '@/shared/ui';
 
-import { reportCategories } from '../const';
+import { reportCategories } from '../consts';
 
 interface IReportModal {
   isVisible: boolean;
+  feedId: number;
   onCancel: () => void;
   onReport: () => void;
 }
-export const ReportModal = ({ isVisible, onCancel, onReport }: IReportModal) => {
+export const ReportModal = ({ isVisible, feedId, onCancel, onReport }: IReportModal) => {
   const contentMaxLength = 80;
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [reportContent, setReportContent] = useState('');
-  const [isHidedFeed, setIsHidedFeed] = useState(false);
+  const [isBlindFeed, setIsBlindFeed] = useState(false);
 
   const changeReportContent = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     setReportContent(e.target.value);
 
-  const sendReport = () => {
-    //server request 시 동작...
-    console.log('send Report!', selectedCategory, reportContent, isHidedFeed);
+  const sendReport = async () => {
+    try {
+      const response = await fetch(`http://api.example.com/v2/feeds/${feedId}/reports`, {
+        method: 'POST',
+        body: JSON.stringify({
+          isBlind: isBlindFeed,
+          content: reportContent,
+          category: selectedCategory,
+        }),
+      });
+      const result = await response.json();
 
-    //server request 이후 동작
-    onReport();
-    onCancel();
+      if (result.code === '2000' && result.data.isReported) onReport();
+      else throw Error;
+    } catch {
+      alert('신고에 실패했습니다. 다시 확인해주세요.');
+    }
   };
 
   if (!isVisible) return <></>;
@@ -50,7 +62,7 @@ export const ReportModal = ({ isVisible, onCancel, onReport }: IReportModal) => 
           <div className="w-full flex flex-col space-y-1 items-end mt-4">
             <textarea
               value={reportContent}
-              className="w-full p-[10px] rounded-[4px] bg-gray01 text-b1m text-gray07 outline-none focus:outline-none"
+              className="resize-none w-full min-h-[68px] p-[10px] rounded-[4px] bg-gray01 text-b1m text-gray07 outline-none focus:outline-none"
               onChange={changeReportContent}
               maxLength={contentMaxLength}
             ></textarea>
@@ -60,8 +72,8 @@ export const ReportModal = ({ isVisible, onCancel, onReport }: IReportModal) => 
           </div>
           <Checkbox
             shape="boxPrimary"
-            isChecked={isHidedFeed}
-            setIsChecked={setIsHidedFeed}
+            isChecked={isBlindFeed}
+            setIsChecked={setIsBlindFeed}
             text={<span className="ml-1 text-gray05 text-b1m">해당 게시물 숨기기</span>}
           />
           <div className="w-full flex justify-between space-x-2 mt-5 flex-1 [&>button]:rounded-[4px] [&>button]:w-full">
