@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
 
-import { QueryProvider } from '@/app/provider';
+import { MSWProvider } from '@/app/mocks';
+import { QueryProvider } from '@/app/query';
 import './globals.css';
+
+if (process.env.NEXT_RUNTIME === 'nodejs') {
+  import('@/app/mocks').then(({ server }) => {
+    server.listen();
+  });
+}
 
 export const metadata: Metadata = {
   title: 'Pennyway',
@@ -16,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <MSWProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </MSWProvider>
       </body>
     </html>
   );

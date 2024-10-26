@@ -1,7 +1,23 @@
+import axios from 'axios';
+
 import IconArrowFront from '/public/assets/icon/arrow-front.svg';
 
 import { PageContainer } from '@/widgets/pageContainer/ui/PageContainer';
-export default function Home() {
+
+type User = {
+  firstName: string;
+  lastName: string;
+};
+
+async function getUser() {
+  const result = await axios.get('https://api.example.com/user');
+  const user = result.data as User;
+  return user;
+}
+
+export default async function Home() {
+  const user = await getUser();
+
   return (
     <PageContainer
       headerProps={{
@@ -11,6 +27,7 @@ export default function Home() {
       }}
     >
       <div className="mt-[44px] flex flex-col justify-center gap-12 bg-[#666666]">
+        <p id="server-side-greeting">Hello, {user.firstName}!</p>
         <div className="w-72">
           <p className="bg-white text-black">White</p>
           <p className="bg-gray01 text-black">Gray 01</p>
