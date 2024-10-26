@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Dropdown } from '.';
 
-import type { IOption } from '.';
+import type { IDropdown, IOption } from '.';
 
 import ArrowDownSmall from '/public/assets/icon/arrow-down-small.svg';
 
@@ -32,7 +32,7 @@ export default {
 } satisfies Meta<typeof Dropdown>;
 
 export const Default: Story = {
-  render: (args) => {
+  render: (args: IDropdown) => {
     const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
     const selectOption = (index: number) => {
       setSelectedOptionIndex(index);

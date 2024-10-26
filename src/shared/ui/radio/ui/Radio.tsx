@@ -2,7 +2,7 @@ import React from 'react';
 
 import { radioShapes } from '../const';
 
-interface IRadio {
+export interface IRadio {
   isSelected: boolean;
   changeSelected: () => void;
   shape?: keyof typeof radioShapes;
