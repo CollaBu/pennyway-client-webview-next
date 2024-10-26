@@ -4,8 +4,8 @@ import { Suspense, use } from 'react';
 
 const mockingEnabledPromise =
   typeof window !== 'undefined'
-    ? import('./browser').then(async ({ worker }) => {
-        await worker.start({
+    ? import('./browser').then(({ worker }) => {
+        worker.start({
           onUnhandledRequest(request, print) {
             if (request.url.includes('_next')) {
               return;
