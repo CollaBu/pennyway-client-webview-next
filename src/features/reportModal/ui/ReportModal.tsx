@@ -5,7 +5,7 @@ import { Button, ModalWrapper, Checkbox, Radio } from '@/shared/ui';
 
 import { reportCategories } from '../consts';
 
-interface IReportModal {
+export interface IReportModal {
   isVisible: boolean;
   feedId: number;
   onCancel: () => void;
