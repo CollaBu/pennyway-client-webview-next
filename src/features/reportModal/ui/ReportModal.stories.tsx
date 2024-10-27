@@ -10,6 +10,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof ReportModal> = {
   title: 'ReportModal',
   component: ReportModal,
+  parameters: { layout: 'centered' },
+  tags: ['autodocs'],
   argTypes: {
     isVisible: {
       control: 'boolean',
