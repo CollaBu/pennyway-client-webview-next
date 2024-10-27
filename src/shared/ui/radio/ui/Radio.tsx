@@ -5,7 +5,7 @@ export interface IRadio {
   changeSelected: () => void;
   shape?: keyof typeof radioShapes;
   text?: JSX.Element;
-  name: string; // 라디오 그룹을 위한 name 속성 추가
+  name: string;
 }
 
 export const Radio = ({

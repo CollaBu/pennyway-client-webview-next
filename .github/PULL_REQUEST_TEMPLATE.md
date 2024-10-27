@@ -1,6 +1,6 @@
 ## CheckList
 
-- [ ] `gap`을 이용하여 자식 요소간의 간격을 제어하였나요? (iOS 14 미지원으로 gap -> space between 적용)
+- [ ] `gap`를 이용하여 flex 컨테이너 내 자식 요소간의 간격을 제어하였나요? (iOS 14 미지원으로 gap -> space-x, space-y 적용)
 
 ## 작업 이유
 
