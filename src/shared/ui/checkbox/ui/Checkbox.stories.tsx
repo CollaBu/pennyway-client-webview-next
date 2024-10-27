@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Checkbox, ICheckBox } from './Checkbox';
@@ -14,23 +13,19 @@ export default {
   args: {
     shape: 'circleGraySmall',
     text: <span>Option 1</span>,
+    isChecked: false,
   },
 } satisfies Meta<typeof Checkbox>;
 
 export const Default: Story = {
   render: (args: ICheckBox) => {
-    const [isChecked, setIsChecked] = useState<boolean>(false);
+    const [{ isChecked }, updateArgs] = useArgs();
+
+    const setIsChecked = (value: boolean) => {
+      console.log(value);
+      updateArgs({ isChecked: value });
+    };
 
     return <Checkbox {...args} isChecked={isChecked} setIsChecked={setIsChecked} />;
-  },
-};
-
-export const BoxPrimary: Story = {
-  render: (args: ICheckBox) => {
-    const [isChecked, setIsChecked] = useState<boolean>(false);
-
-    return (
-      <Checkbox {...args} isChecked={isChecked} setIsChecked={setIsChecked} shape="boxPrimary" />
-    );
   },
 };
