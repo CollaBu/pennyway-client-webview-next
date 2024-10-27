@@ -1,9 +1,9 @@
-interface Image {
+interface IImage {
   id: number;
   imageUrl: string;
 }
 
-interface Feed {
+interface IFeed {
   id: number;
 
   user: {
@@ -13,7 +13,7 @@ interface Feed {
   };
 
   content: string;
-  images: Image[];
+  images: IImage[];
 
   likeCount: number;
   commentCount: number;
@@ -38,7 +38,7 @@ function generateRandomContent(length: number) {
 
 function generateRandomImages() {
   const imageCount = Math.floor(Math.random() * 4);
-  const images: Image[] = [];
+  const images: IImage[] = [];
 
   for (let id = 1; id <= imageCount; id++) {
     images.push({
@@ -51,7 +51,7 @@ function generateRandomImages() {
 }
 
 function generateFeedMockData(count: number) {
-  const mockFeeds: Feed[] = [];
+  const mockFeeds: IFeed[] = [];
 
   for (let id = 1; id <= count; id++) {
     const feed = {
