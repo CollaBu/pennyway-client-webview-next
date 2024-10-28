@@ -3,16 +3,15 @@ import { useState } from 'react';
 
 import { Button, ModalWrapper, Checkbox, Radio } from '@/shared/ui';
 
-import { reportCategories } from '../consts';
+import { reportCategories, reportContentMaxLength } from '../consts';
 
 export interface IReportModal {
   isVisible: boolean;
   feedId: number;
   onCancel: () => void;
-  onReport: () => void;
+  onReport: (feedId: number, isBlind: boolean) => void;
 }
 export const ReportModal = ({ isVisible, feedId, onCancel, onReport }: IReportModal) => {
-  const contentMaxLength = 80;
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [reportContent, setReportContent] = useState('');
   const [isBlindFeed, setIsBlindFeed] = useState(false);
@@ -32,7 +31,7 @@ export const ReportModal = ({ isVisible, feedId, onCancel, onReport }: IReportMo
       });
       const result = await response.json();
 
-      if (result.code === '2000' && result.data.isReported) onReport();
+      if (result.code === '2000' && result.data.isReported) onReport(feedId, isBlindFeed);
       else throw Error;
     } catch {
       alert('신고에 실패했습니다. 다시 확인해주세요.');
@@ -64,10 +63,10 @@ export const ReportModal = ({ isVisible, feedId, onCancel, onReport }: IReportMo
               value={reportContent}
               className="resize-none w-full min-h-[68px] p-[10px] rounded-[4px] bg-gray01 text-b1m text-gray07 outline-none focus:outline-none"
               onChange={changeReportContent}
-              maxLength={contentMaxLength}
-            ></textarea>
+              maxLength={reportContentMaxLength}
+            />
             <span className="text-b2m text-gray03">
-              {reportContent.length}/{contentMaxLength}
+              {reportContent.length}/{reportContentMaxLength}
             </span>
           </div>
           <Checkbox

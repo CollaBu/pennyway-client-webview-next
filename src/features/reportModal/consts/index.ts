@@ -1,4 +1,4 @@
-export const reportCategories: string[] = [
+export const reportCategories = [
   '상업적/홍보성',
   '음란/선정성',
   '저작권 침해',
@@ -7,3 +7,4 @@ export const reportCategories: string[] = [
   '반복적인 내용',
   '기타',
 ];
+export const reportContentMaxLength = 80;

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useArgs } from '@storybook/preview-api';
 import { fn } from '@storybook/test';
 
-import { ReportModal } from './ReportModal';
+import { IReportModal, ReportModal } from './ReportModal';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -35,7 +35,7 @@ export const Default: Story = {
     onCancel: fn,
     onReport: fn,
   },
-  render: function Render(args) {
+  render: function Render(args: IReportModal) {
     const [{ isVisible }, updateArgs] = useArgs();
 
     useEffect(() => {
@@ -49,7 +49,7 @@ export const Default: Story = {
 
     const reportFeed = () => {
       updateArgs({ isVisible: false });
-      args.onReport();
+      args.onReport(1, false);
     };
 
     return (

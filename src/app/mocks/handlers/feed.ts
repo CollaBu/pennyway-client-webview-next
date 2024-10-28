@@ -16,6 +16,7 @@ export const feedHandlers = [
     if (!feedId || !category || !content) {
       return createHttpErrorResponse('피드 ID, 신고 카테고리, 컨텐츠가 다 입력되어야 합니다.');
     }
+
     return createHttpSuccessResponse({
       isReported: true,
     });
