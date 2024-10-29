@@ -1,14 +1,8 @@
-import { blindFeedMockData, feedMockData } from '@/app/mocks/data';
-import { ReportModal } from '@/features/feed/reportModal';
-
 import IconArrowFront from '/public/assets/icon/arrow-front.svg';
 
 import { PageContainer } from '@/widgets/pageContainer/ui/PageContainer';
 
-import { useState } from 'react';
-
 export default function Home() {
-  const [feeds, setFeeds] = useState([...feedMockData]);
   return (
     <PageContainer
       headerProps={{
@@ -17,15 +11,6 @@ export default function Home() {
         right: <button className="w-[44px] h-[44px] pr-2 text-black">게시</button>,
       }}
     >
-      <ReportModal
-        isVisible={true}
-        feedId={12}
-        onCancel={() => {}}
-        onReport={() => {
-          //실제로는 다시, 피드 조회를 재호출 할 것이나, DB가 없기에 피드조회 대신 blindFeedMockData를 통해 가려진 새 배열을 가져온다
-          setFeeds([...blindFeedMockData(feeds, 12)]);
-        }}
-      />
       <div className="mt-[44px] flex flex-col justify-center gap-12 bg-[#666666]">
         <div className="w-72">
           <p className="bg-white text-black">White</p>
