@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { Button, ModalWrapper, Checkbox, Radio } from '@/shared/ui';
 
-import { reportCategories, reportContentMaxLength } from '../consts';
+import { reportCategories, REPORT_CONTENT_MAX_LENGTH } from '../consts';
 
 export interface IReportModal {
   isVisible: boolean;
@@ -63,10 +63,10 @@ export const ReportModal = ({ isVisible, feedId, onCancel, onReport }: IReportMo
               value={reportContent}
               className="resize-none w-full min-h-[68px] p-[10px] rounded-[4px] bg-gray01 text-b1m text-gray07 outline-none focus:outline-none"
               onChange={changeReportContent}
-              maxLength={reportContentMaxLength}
+              maxLength={REPORT_CONTENT_MAX_LENGTH}
             />
             <span className="text-b2m text-gray03">
-              {reportContent.length}/{reportContentMaxLength}
+              {reportContent.length}/{REPORT_CONTENT_MAX_LENGTH}
             </span>
           </div>
           <Checkbox

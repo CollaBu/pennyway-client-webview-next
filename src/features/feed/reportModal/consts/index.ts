@@ -7,4 +7,4 @@ export const reportCategories = [
   '반복적인 내용',
   '기타',
 ];
-export const reportContentMaxLength = 80;
+export const REPORT_CONTENT_MAX_LENGTH = 80;
