@@ -1,10 +1,10 @@
 import { checkboxShapes } from '../consts';
 
-type setIsCheckedFunc = (value: boolean) => void;
+type TSetIsCheckedFunc = (value: boolean) => void;
 
 export interface ICheckBox {
   isChecked: boolean;
-  setIsChecked: React.Dispatch<React.SetStateAction<boolean>> | setIsCheckedFunc;
+  setIsChecked: React.Dispatch<React.SetStateAction<boolean>> | TSetIsCheckedFunc;
   shape?: keyof typeof checkboxShapes;
   text?: JSX.Element;
 }
