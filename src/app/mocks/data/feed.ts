@@ -20,6 +20,7 @@ interface IFeed {
 
   isLiked: boolean;
   isBookmarked: boolean;
+  isBlinded: boolean;
 
   createdAt: string;
   updatedAt: string;
@@ -69,12 +70,22 @@ function generateFeedMockData(count: number) {
       isBookmarked: Math.random() < 0.5,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
+      isBlinded: false,
     };
 
     mockFeeds.push(feed);
   }
 
   return mockFeeds;
+}
+
+export function blindFeedMockData(feeds: IFeed[], feedId: number) {
+  return feeds.map((feed) => {
+    if (feedId === feed.id) {
+      feed.isBlinded = true;
+    }
+    return feed;
+  });
 }
 
 export const feedMockData = generateFeedMockData(100);

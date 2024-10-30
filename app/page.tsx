@@ -2,7 +2,7 @@ import IconArrowFront from '/public/assets/icon/arrow-front.svg';
 
 import { PageContainer } from '@/widgets/pageContainer/ui/PageContainer';
 
-export default async function Home() {
+export default function Home() {
   return (
     <PageContainer
       headerProps={{

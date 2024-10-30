@@ -3,6 +3,7 @@ export const buttonColors = {
   primary: 'bg-mint03 text-white',
   secondary: 'bg-gray05 text-white',
   warning: 'bg-red03 text-white',
+  disabled: 'bg-gray03 text-gray04',
 };
 
 export const buttonSizes = {
