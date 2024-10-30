@@ -9,11 +9,11 @@ export const searchHandlers = [
   http.get('http://api.example.com/v2/feeds', ({ request }) => {
     const url = new URL(request.url);
 
-    const query = url.searchParams.get('query');
+    const target = url.searchParams.get('target');
     const page = Number(url.searchParams.get('page') || 1);
     const size = Number(url.searchParams.get('size') || 15);
 
-    if (!query || query.length < 2) {
+    if (!target || target.length < 2) {
       return createHttpErrorResponse('검색어는 최소 2글자 이상이어야 합니다');
     }
 
@@ -22,7 +22,7 @@ export const searchHandlers = [
     });
 
     const contents = fuse
-      .search(query)
+      .search(target)
       .map((result) => result.item)
       .slice((page - 1) * size, page * size);
     const totalFeeds = contents.length;
