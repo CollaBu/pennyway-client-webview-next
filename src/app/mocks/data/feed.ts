@@ -1,3 +1,5 @@
+import { IUser, userMockData } from './user';
+
 interface IImage {
   id: number;
   imageUrl: string;
@@ -5,12 +7,7 @@ interface IImage {
 
 interface IFeed {
   id: number;
-
-  user: {
-    id: number;
-    profileImage: string;
-    username: string;
-  };
+  user: IUser;
 
   content: string;
   images: IImage[];
@@ -56,11 +53,7 @@ function generateFeedMockData(count: number) {
   for (let id = 1; id <= count; id++) {
     const feed = {
       id,
-      user: {
-        id: id,
-        profileImage: `https://randomuser.me/api/portraits/${Math.random() > 0.5 ? 'men' : 'women'}/${id}.jpg`,
-        username: `user_${id}`,
-      },
+      user: userMockData[id - 1],
       content: generateRandomContent(Math.floor(Math.random() * 300)),
       images: generateRandomImages(),
       likeCount: Math.floor(Math.random() * 1000),
