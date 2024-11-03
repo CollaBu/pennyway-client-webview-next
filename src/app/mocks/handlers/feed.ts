@@ -1,29 +1,16 @@
 import { http } from 'msw';
 
-import { feedMockData } from '../data';
+import { IReportFeedReqDTO, IWriteFeedReqDTO } from '@/entities/feed';
+
 import { feedMockData } from '../data';
 import { createHttpErrorResponse, createHttpSuccessResponse } from '../lib';
-
-interface IReportFeedReqDTO {
-  category: string;
-  content: string;
-  isBlind: boolean;
-}
-
-interface IWriteFeedReqDTO {
-  content: string;
-  images: string[];
-  scope: TFeedScope;
-}
-
-type TFeedScope = 'public' | 'friends' | 'private';
 
 export const feedHandlers = [
   // 1️⃣ 피드 신고
   http.post('http://api.example.com/v2/feeds/:feedId/reports', async ({ request, params }) => {
     const { feedId } = params;
 
-    const { category, content } = (await request.json()) as IReportFeedReqDTO;
+    const { category, isBlind } = (await request.json()) as IReportFeedReqDTO;
 
     if (!feedId || !category) {
       return createHttpErrorResponse('피드 ID, 신고 카테고리가 필수로 입력되어야 합니다.');
