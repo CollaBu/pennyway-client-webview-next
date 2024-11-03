@@ -1,8 +1,4 @@
-export interface IUser {
-  id: number;
-  profileImage: string;
-  username: string;
-}
+import { IUser } from '@/entities/user';
 
 function generateRandomUsername(id: number) {
   const prefixes = ['user', 'player', 'guest', 'member', 'star'];

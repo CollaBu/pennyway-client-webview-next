@@ -1,6 +1,6 @@
-import IconArrowFront from '/public/assets/icon/arrow-front.svg';
+import { PageContainer } from '@/shared/ui/page-container/ui/PageContainer';
 
-import { PageContainer } from '@/widgets/pageContainer/ui/PageContainer';
+import IconArrowFront from '/public/assets/icon/arrow-front.svg';
 
 export default function Home() {
   return (

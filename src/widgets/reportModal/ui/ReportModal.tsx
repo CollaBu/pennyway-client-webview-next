@@ -42,7 +42,7 @@ export const ReportModal = ({ isVisible, feedId, onCancel, onReport }: IReportMo
 
   return (
     <ModalWrapper position="center">
-      <div className="bg-white rounded-lg z-20 w-full mx-5">
+      <div className="bg-white rounded-lg z-20 w-[280px]">
         <div className="p-[18px] w-full flex flex-col items-start justify-center">
           <h3 className="text-h3s text-gray07">신고하기</h3>
           <div className="w-full flex flex-wrap -mb-[10px] mt-4">
