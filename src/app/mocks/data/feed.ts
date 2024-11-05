@@ -1,27 +1,7 @@
-import { IUser, userMockData } from './user';
+import { IFeed } from '@/entities/feed';
+import { IImage } from '@/shared/types';
 
-interface IImage {
-  id: number;
-  imageUrl: string;
-}
-
-interface IFeed {
-  id: number;
-  user: IUser;
-
-  content: string;
-  images: IImage[];
-
-  likeCount: number;
-  commentCount: number;
-
-  isLiked: boolean;
-  isBookmarked: boolean;
-  isBlinded: boolean;
-
-  createdAt: string;
-  updatedAt: string;
-}
+import { userMockData } from './user';
 
 function generateRandomContent(length: number) {
   const words = 'Lorem ipsum dolor sit amet consectetur adipiscing elit'.split(' ');
@@ -70,15 +50,6 @@ function generateFeedMockData(count: number) {
   }
 
   return mockFeeds;
-}
-
-export function blindFeedMockData(feeds: IFeed[], feedId: number) {
-  return feeds.map((feed) => {
-    if (feedId === feed.id) {
-      feed.isBlinded = true;
-    }
-    return feed;
-  });
 }
 
 export const feedMockData = generateFeedMockData(100);
