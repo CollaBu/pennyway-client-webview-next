@@ -18,3 +18,5 @@ export interface IFeed {
   createdAt: string;
   updatedAt: string;
 }
+
+export type TFeedScope = 'public' | 'friends' | 'private';
