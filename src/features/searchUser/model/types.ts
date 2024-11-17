@@ -1,7 +1,7 @@
 import { IUser } from '@/entities/user';
-import { ICommonSearchData } from '@/shared/types';
+import { IScrollablePage } from '@/shared/types';
 
 //유저 검색
 export interface ISearchUserResDTO {
-  user: ICommonSearchData<IUser[]>;
+  user: IScrollablePage<IUser[]>;
 }

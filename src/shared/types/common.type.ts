@@ -1,4 +1,4 @@
-export interface ICommonSearchData<T> {
+export interface IScrollablePage<T> {
   contents: T;
   currentPageNumber: number;
   pageSize: number;
