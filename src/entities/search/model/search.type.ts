@@ -1,5 +1,6 @@
 import { IFeed } from '@/entities/feed';
 import { IUser } from '@/entities/user';
+import { ICommonSearchData } from '@/shared/types';
 
 //피드 검색
 export interface ISearchFeedResDTO {
@@ -9,12 +10,4 @@ export interface ISearchFeedResDTO {
 //유저 검색
 export interface ISearchUserResDTO {
   user: ICommonSearchData<IUser[]>;
-}
-
-export interface ICommonSearchData<T> {
-  contents: T;
-  currentPageNumber: number;
-  pageSize: number;
-  numberOfElements: number;
-  hasNextPage: boolean;
 }
