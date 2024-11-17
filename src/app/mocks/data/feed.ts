@@ -1,5 +1,4 @@
-import { IFeed } from '@/entities/feed';
-import { IImage } from '@/shared/types';
+import { IFeed, IImage } from '@/entities/feed';
 
 import { userMockData } from './user';
 

@@ -1,6 +1,11 @@
 import { http } from 'msw';
 
-import { IReportFeedReqDTO, IWriteFeedReqDTO } from '@/entities/feed';
+import {
+  IReportFeedReqDTO,
+  IReportFeedResDTO,
+  TModifyFeedReqDTO,
+  TWriteFeedReqDTO,
+} from '@/entities/feed';
 
 import { feedMockData } from '../data';
 import { createHttpErrorResponse, createHttpSuccessResponse } from '../lib';
@@ -24,14 +29,14 @@ export const feedHandlers = [
       });
     }
 
-    return createHttpSuccessResponse({
+    return createHttpSuccessResponse<IReportFeedResDTO>({
       isReported: true,
     });
   }),
 
   // 2️⃣ 피드 작성
   http.post('http://api.example.com/v2/feeds', async ({ request }) => {
-    const { content, images, scope } = (await request.json()) as IWriteFeedReqDTO;
+    const { content, images, scope } = (await request.json()) as TWriteFeedReqDTO;
 
     if (!content) {
       return createHttpErrorResponse('피드 등록을 위해 컨텐츠를 작성해야 합니다.');
@@ -60,7 +65,7 @@ export const feedHandlers = [
   http.put('http://api.example.com/v2/feeds/:feedId', async ({ request, params }) => {
     const { feedId } = params;
 
-    const { content, images, scope } = (await request.json()) as IWriteFeedReqDTO;
+    const { content, images, scope } = (await request.json()) as TModifyFeedReqDTO;
 
     if (!content) {
       return createHttpErrorResponse('피드 수정을 위해 컨텐츠를 작성해야 합니다.');
