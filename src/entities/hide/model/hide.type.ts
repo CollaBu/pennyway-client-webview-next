@@ -4,6 +4,6 @@ export interface IHideFeedResDTO {
 }
 
 // 피드 숨기기 취소
-export interface ICancleHideResDTO {
+export interface ICancelHideResDTO {
   isHidden: boolean;
 }

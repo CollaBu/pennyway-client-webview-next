@@ -1,6 +1,6 @@
 import { http } from 'msw';
 
-import { ICancleHideResDTO, IHideFeedResDTO } from '@/entities/hide';
+import { ICancelHideResDTO, IHideFeedResDTO } from '@/entities/hide';
 
 import { feedMockData } from '../data';
 import { createHttpErrorResponse, createHttpSuccessResponse } from '../lib';
@@ -35,7 +35,7 @@ export const feedHandlers = [
       if (cur.id === +feedId) cur.isBlinded = false;
     });
 
-    return createHttpSuccessResponse<ICancleHideResDTO>({
+    return createHttpSuccessResponse<ICancelHideResDTO>({
       isHidden: false,
     });
   }),
