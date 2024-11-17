@@ -5,7 +5,7 @@ import {
   ICancelHideResDTO,
   IHideFeedParamsDTO,
   IHideFeedResDTO,
-} from '@/entities/hide';
+} from '@/features/hideFeed';
 
 import { feedMockData } from '../data';
 import { createHttpErrorResponse, createHttpSuccessResponse } from '../lib';
