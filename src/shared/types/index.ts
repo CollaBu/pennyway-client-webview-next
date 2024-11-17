@@ -1,2 +1,2 @@
-export * from './image';
-export * from './search';
+export * from './image.type';
+export * from './search.type';

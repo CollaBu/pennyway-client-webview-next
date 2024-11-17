@@ -1,5 +1,5 @@
-import { IUser } from '@/entities/user/model/type';
-import { IImage } from '@/shared/types/image';
+import { IUser } from '@/entities/user';
+import { IImage } from '@/shared/types';
 
 export interface IFeed {
   id: number;

@@ -1,7 +1,8 @@
 import Fuse from 'fuse.js';
 import { http } from 'msw';
 
-import { ISearchFeedResDTO, ISearchUserResDTO } from '@/entities/search';
+import { ISearchFeedResDTO } from '@/features/searchFeed';
+import { ISearchUserResDTO } from '@/features/searchUser';
 
 import { feedMockData, userMockData } from '../data';
 import { createHttpErrorResponse, createHttpSuccessResponse } from '../lib';
