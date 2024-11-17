@@ -1,6 +1,8 @@
 import Fuse from 'fuse.js';
 import { http } from 'msw';
 
+import { ISearchFeedResDTO, ISearchUserResDTO } from '@/entities/search';
+
 import { feedMockData, userMockData } from '../data';
 import { createHttpErrorResponse, createHttpSuccessResponse } from '../lib';
 
@@ -28,7 +30,7 @@ export const searchHandlers = [
     const totalFeeds = contents.length;
     const hasNextPage = totalFeeds > page * size;
 
-    return createHttpSuccessResponse({
+    return createHttpSuccessResponse<ISearchFeedResDTO>({
       feed: {
         contents,
         currentPageNumber: page,
@@ -62,7 +64,7 @@ export const searchHandlers = [
     const totalFeeds = contents.length;
     const hasNextPage = totalFeeds > page * size;
 
-    return createHttpSuccessResponse({
+    return createHttpSuccessResponse<ISearchUserResDTO>({
       user: {
         contents,
         currentPageNumber: page,
