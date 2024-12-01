@@ -5,7 +5,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Input } from './Input';
 
 export default {
-  title: 'UI/Input',
+  title: 'Input',
   component: Input,
   argTypes: {
     placeholder: {
