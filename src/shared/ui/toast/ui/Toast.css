@@ -1,0 +1,37 @@
+.Toastify__toast-container {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.Toastify__toast-container .Toastify__toast {
+  margin: 0 auto;
+  width: 280px;
+  height: 40px;
+
+  min-height: 40px;
+  max-height: 40px;
+
+  border-radius: 6px;
+
+  background: #98a3b4e5;
+  color: #ffffff;
+  padding: 0;
+}
+
+.Toastify__toast-container .Toastify__toast .Toastify__toast-body {
+  height: 40px;
+  padding: 0 0 0 12px;
+}
+
+.Toastify__toast-container .Toastify__toast .Toastify__toast-body .Toastify__toast-icon {
+  margin-inline-end: 6px;
+}
+.Toastify__toast-icon {
+  -webkit-margin-end: 0px;
+  margin-inline-end: 0px;
+}
+
+.Toastify__toast-container .Toastify__toast .Toastify__close-button,
+.Toastify__toast-container .Toastify__toast .Toastify__progress-bar--wrp {
+  visibility: hidden;
+}
