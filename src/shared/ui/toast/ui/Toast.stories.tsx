@@ -6,55 +6,69 @@ import { toastHandler } from '../lib';
 import { Toast } from './Toast';
 
 export default {
-  title: 'UI/Toast',
+  title: 'Toast',
   component: Toast,
   argTypes: {
+    message: {
+      control: {
+        type: 'select',
+        options: Object.keys(toastMessage),
+      },
+      description: '토스트 메시지를 선택합니다.',
+      defaultValue: 'reportSuccess',
+    },
     icon: {
       control: {
         type: 'select',
         options: Object.keys(toastIcon),
       },
-      description: '토스트에 표시할 아이콘을 선택합니다.',
-      defaultValue: 'caution',
+      description: '토스트 아이콘을 선택합니다.',
+      defaultValue: 'feedSiren',
     },
   },
 } as Meta<typeof Toast>;
 
 interface IToastStoryProps {
+  message: keyof typeof toastMessage;
   icon: keyof typeof toastIcon;
 }
 
-const Template: StoryFn<IToastStoryProps> = ({ icon }) => {
-  const showToast = (messageKey: keyof typeof toastMessage, icon: keyof typeof toastIcon) => {
-    toastHandler(messageKey, icon);
-  };
-
+const Template: StoryFn<IToastStoryProps> = ({ message, icon }) => {
   return (
     <div style={{ padding: '20px' }}>
       <Toast />
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <button onClick={() => showToast('reportSuccess', icon)}>신고 성공 토스트</button>
-        <button onClick={() => showToast('reportFail', icon)}>신고 실패 토스트</button>
-        <button onClick={() => showToast('networkError', icon)}>네트워크 오류 토스트</button>
-        <button onClick={() => showToast('commonDeleteSuccess', icon)}>
-          댓글 삭제 성공 토스트
+        <button
+          className="w-40 h-10 border border-black"
+          onClick={() => toastHandler(message, icon)}
+        >
+          토스트 버튼
         </button>
       </div>
     </div>
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  icon: 'caution',
-};
-
-export const FeedSirenToast = Template.bind({});
-FeedSirenToast.args = {
+export const ReportSuccessToast = Template.bind({});
+ReportSuccessToast.args = {
+  message: 'reportSuccess',
   icon: 'feedSiren',
 };
 
-export const CheckOnSmallToast = Template.bind({});
-CheckOnSmallToast.args = {
+export const ReportFailToast = Template.bind({});
+ReportFailToast.args = {
+  message: 'reportFail',
+  icon: 'caution',
+};
+
+export const NetworkErrorToast = Template.bind({});
+NetworkErrorToast.args = {
+  message: 'networkError',
+  icon: 'caution',
+};
+
+export const CommonDeleteSuccessToast = Template.bind({});
+CommonDeleteSuccessToast.args = {
+  message: 'commonDeleteSuccess',
   icon: 'checkOnSmall',
 };
