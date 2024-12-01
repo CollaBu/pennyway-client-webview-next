@@ -11,7 +11,7 @@ export const Toast = () => {
       closeButton={false}
       hideProgressBar={true}
       closeOnClick={true}
-      autoClose={300000}
+      autoClose={3000}
       limit={1}
       theme="light"
       className="b1s"
