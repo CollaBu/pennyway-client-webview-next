@@ -25,18 +25,20 @@ interface IToastStoryProps {
 }
 
 const Template: StoryFn<IToastStoryProps> = ({ icon }) => {
-  const showToast = (messageKey: keyof typeof toastMessage) => {
-    toastHandler(messageKey);
+  const showToast = (messageKey: keyof typeof toastMessage, icon: keyof typeof toastIcon) => {
+    toastHandler(messageKey, icon);
   };
 
   return (
     <div style={{ padding: '20px' }}>
-      <Toast icon={icon} />
+      <Toast />
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <button onClick={() => showToast('reportSuccess')}>신고 성공 토스트</button>
-        <button onClick={() => showToast('reportFail')}>신고 실패 토스트</button>
-        <button onClick={() => showToast('networkError')}>네트워크 오류 토스트</button>
-        <button onClick={() => showToast('commonDeleteSuccess')}>댓글 삭제 성공 토스트</button>
+        <button onClick={() => showToast('reportSuccess', icon)}>신고 성공 토스트</button>
+        <button onClick={() => showToast('reportFail', icon)}>신고 실패 토스트</button>
+        <button onClick={() => showToast('networkError', icon)}>네트워크 오류 토스트</button>
+        <button onClick={() => showToast('commonDeleteSuccess', icon)}>
+          댓글 삭제 성공 토스트
+        </button>
       </div>
     </div>
   );

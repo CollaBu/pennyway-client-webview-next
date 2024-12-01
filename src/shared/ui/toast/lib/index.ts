@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
-import { toastMessage } from '../consts';
+import { toastIcon, toastMessage } from '../consts';
 
-export const toastHandler = (message: keyof typeof toastMessage) => {
-  toast(toastMessage[message]);
+export const toastHandler = (message: keyof typeof toastMessage, icon: keyof typeof toastIcon) => {
+  toast(toastMessage[message], { icon: toastIcon[icon] });
 };

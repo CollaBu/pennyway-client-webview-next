@@ -3,20 +3,11 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { toastIcon } from '../consts';
-
-interface IToastProps {
-  icon: keyof typeof toastIcon;
-}
-
-export const Toast = ({ icon }: IToastProps) => {
-  const Icon = toastIcon[icon];
-
+export const Toast = () => {
   return (
     <ToastContainer
       position="bottom-center"
       closeButton={false}
-      icon={<Icon width={20} height={20} />}
       hideProgressBar={true}
       closeOnClick={true}
       autoClose={3000}
