@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { toastIcon, toastMessage } from '../consts';
+import { toastIcon, TOAST_MESSAGES } from '../consts';
 import { toastHandler } from '../lib';
 
 import { Toast } from './Toast';
@@ -12,7 +12,7 @@ export default {
     message: {
       control: {
         type: 'select',
-        options: Object.keys(toastMessage),
+        options: Object.keys(TOAST_MESSAGES),
       },
       description: '토스트 메시지를 선택합니다.',
       defaultValue: 'reportSuccess',
@@ -29,7 +29,7 @@ export default {
 } as Meta<typeof Toast>;
 
 interface IToastStoryProps {
-  message: keyof typeof toastMessage;
+  message: keyof typeof TOAST_MESSAGES;
   icon: keyof typeof toastIcon;
 }
 
@@ -51,24 +51,24 @@ const Template: StoryFn<IToastStoryProps> = ({ message, icon }) => {
 
 export const ReportSuccessToast = Template.bind({});
 ReportSuccessToast.args = {
-  message: 'reportSuccess',
+  message: 'REPORT_SUCCESS',
   icon: 'feedSiren',
 };
 
 export const ReportFailToast = Template.bind({});
 ReportFailToast.args = {
-  message: 'reportFail',
+  message: 'REPORT_FAIL',
   icon: 'caution',
 };
 
 export const NetworkErrorToast = Template.bind({});
 NetworkErrorToast.args = {
-  message: 'networkError',
+  message: 'NETWORK_ERROR',
   icon: 'caution',
 };
 
 export const CommonDeleteSuccessToast = Template.bind({});
 CommonDeleteSuccessToast.args = {
-  message: 'commonDeleteSuccess',
+  message: 'COMMON_DELETE_SUCCESS',
   icon: 'checkOnSmall',
 };
