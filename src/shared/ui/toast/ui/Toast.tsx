@@ -1,10 +1,10 @@
 'use client';
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, ToastContainerProps } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Toast.css';
 
-export const Toast = () => {
+export const Toast = ({ ...props }: ToastContainerProps) => {
   return (
     <ToastContainer
       position="bottom-center"
@@ -15,6 +15,7 @@ export const Toast = () => {
       limit={1}
       theme="light"
       className="b1s"
+      {...props}
     />
   );
 };
