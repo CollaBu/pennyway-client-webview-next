@@ -18,7 +18,8 @@ export default {
       defaultValue: false,
     },
   },
-} as Meta<typeof Input>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof Input>;
 
 interface IInputStoryProps {
   type: string;
